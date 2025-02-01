@@ -5,6 +5,8 @@ import CTAButton from "../Components/Core/HomePage/Button";
 import HighLightText from '../Components/Core/HomePage/HighLightText';
 import Banner from '../assets/Images/banner.mp4';
 import CodeBlocks from '../Components/Core/HomePage/CodeBlocks';
+import TimeLineSection from '../Components/Core/HomePage/TimeLineSection';
+import LearningLanguageSection from '../Components/Core/HomePage/LearningLanguageSection';
 const Home = () => {
   return (
     <div>
@@ -70,7 +72,7 @@ const Home = () => {
               linkto: "/login",
               active: false,
             }}
-            codeblock={`<!DOCTYPE html>\n<html>\n<head><title>Example</title>\n</head>\n<body>\n<h1><ahref="/">Header</a>\n</h1>\n<nav><ahref="one/">One</a><ahref="two/">Two</a><ahref="three/">Three</a>\n</nav>`}
+            codeblock={`<!DOCTYPE html>\n<html>\n<head><title>Example</title>\n</head>\n<body>\n<h1><ahref="/">Header</a>\n</h1>\n<nav><ahref="one/">One</a>\n<ahref="two/">Two</a>\n<ahref="three/">Three</a>\n</nav>`}
             codeColor={"text-richblack-200"}
           />
         </div>
@@ -98,12 +100,53 @@ const Home = () => {
               linkto: "/login",
               active: true,
             }}
-            codeblock={`<!DOCTYPE html>\n<html>\n<head><title>Example</title>\n</head>\n<body>\n<h1><ahref="/">Header</a>\n</h1>\n<nav><ahref="one/">One</a><ahref="two/">Two</a><ahref="three/">Three</a>\n</nav>`}
+            codeblock={`<!DOCTYPE html>\n<html>\n<head><title>Example</title>\n</head>\n<body>\n<h1><ahref="/">Header</a>\n</h1>\n<nav><ahref="one/">One</a>\n<ahref="two/">Two</a>\n<ahref="three/">Three</a>\n</nav>`}
             codeColor={"text-richblack-200"}
           />
         </div>
       </div>
       {/* Section-2 */}
+      <div className="bg-pure-greys-5 text-richblack-700">
+        <div className="homePage_bg h-[300px]">
+          <div className="w-11/12 max-w-maxContent flex flex-col justify-between items-center gap-5 mx-auto">
+            <div className="h-[150px]"></div>
+            <div className="flex flex-row gap-7 text-white">
+              <CTAButton active={true} linkto={"/signup"}>
+                <div className="flex items-center gap-3">
+                  Explore Full Catalog
+                  <FaArrowRight />
+                </div>
+              </CTAButton>
+              <CTAButton active={false} linkto={"/signup"}>
+                <div>Learn More</div>
+              </CTAButton>
+            </div>
+          </div>
+        </div>
+
+        <div className="mx-auto w-11/12 max-w-maxContent flex flex-col items-center justify-between gap-7">
+          <div className="flex flex-row gap-5 mb-10 mt-[95px]">
+            <div className="text-4xl font-semibold w-[45%]">
+              Get the Skills you need for a
+              <HighLightText text={" job that is in demand "} />
+            </div>
+            <div className="flex flex-col gap-10 w-[40%] items-start">
+              <div className="text-[16px]">
+                The modern EduVen redefines learning on its own terms. Today,
+                being a competitive specialist requires more than just
+                professional skills.
+              </div>
+              <CTAButton active={true} linkto={"/signup"}>
+                <div>Learn More</div>
+              </CTAButton>
+            </div>
+          </div>
+
+          <TimeLineSection />
+
+          <LearningLanguageSection />
+        </div>
+      </div>
       {/* Section-3 */}
       {/* Section-4 */}
     </div>

@@ -2,3 +2,7 @@
 html{
     overflow-x: hidden;
 }
+
+.homePage_bg{
+    background-image: url("../src/assets/Images/bghome.svg");
+}
