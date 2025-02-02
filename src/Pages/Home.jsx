@@ -7,6 +7,10 @@ import Banner from '../assets/Images/banner.mp4';
 import CodeBlocks from '../Components/Core/HomePage/CodeBlocks';
 import TimeLineSection from '../Components/Core/HomePage/TimeLineSection';
 import LearningLanguageSection from '../Components/Core/HomePage/LearningLanguageSection';
+import InstructorSection from '../Components/Core/HomePage/InstructorSection';
+import Footer from '../Components/Common/Footer';
+import ExploreMore from '../Components/Core/HomePage/ExploreMore';
+
 const Home = () => {
   return (
     <div>
@@ -73,7 +77,7 @@ const Home = () => {
               active: false,
             }}
             codeblock={`<!DOCTYPE html>\n<html>\n<head><title>Example</title>\n</head>\n<body>\n<h1><ahref="/">Header</a>\n</h1>\n<nav><ahref="one/">One</a>\n<ahref="two/">Two</a>\n<ahref="three/">Three</a>\n</nav>`}
-            codeColor={"text-richblack-200"}
+            codeColor={"text-yellow-100"}
           />
         </div>
 
@@ -104,6 +108,8 @@ const Home = () => {
             codeColor={"text-richblack-200"}
           />
         </div>
+
+        <ExploreMore/>
       </div>
       {/* Section-2 */}
       <div className="bg-pure-greys-5 text-richblack-700">
@@ -148,7 +154,13 @@ const Home = () => {
         </div>
       </div>
       {/* Section-3 */}
+      <div className='relative mx-auto my-20 flex w-11/12 max-w-maxContent flex-col items-center justify-between gap-8 bg-richblack-900 text-white'>
+        <InstructorSection/>
+
+        <p className='text-center text-4xl font-semibold mt-8'>Reviews from other Learners</p>
+      </div>
       {/* Section-4 */}
+      <Footer/>
     </div>
   );
 }
