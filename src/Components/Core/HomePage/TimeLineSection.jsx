@@ -3,6 +3,7 @@ import Logo1 from "../../../assets/TimeLineLogo/Logo1.svg"
 import Logo2 from "../../../assets/TimeLineLogo/Logo2.svg"
 import Logo3 from "../../../assets/TimeLineLogo/Logo3.svg"
 import Logo4 from "../../../assets/TimeLineLogo/Logo4.svg"
+import TimeLineImage from "../../../assets/Images/TimelineImage.png"
 const timeline = [
   {
     Logo: Logo1,
@@ -58,10 +59,16 @@ const TimeLineSection = () => {
             bg-caribbeangreen-700 flex lg:flex-row flex-col text-white uppercase py-5 gap-4 lg:gap-0 lg-py-10'>
                 {/* Section-1 */}
                 <div className='flex gap-5 items-center lg:border-r border-caribbeangreen-300 px-7 lg:px-14'>
-                    <h1 className='text-3xl font-bold w-[75px]'>10</h1>
-                    <h1 className='text-caribbeangreen-300 text-sm w-[75px]'>Years of Experiences</h1>
+                    <p className='text-3xl font-bold w-[75px]'>10</p>
+                    <p className='text-caribbeangreen-300 text-sm w-[75px]'>Years of Experiences</p>
+                </div>
+                {/* Section-2 */}
+                <div className='flex gap-5 items-center lg:px-14 px-7'>
+                    <p className='text-3xl font-bold w-[75px]'>250</p>
+                    <p className='text-caribbeangreen-300 text-sm w-[75px]'>Types of Courses</p>
                 </div>
             </div>
+            <img src={TimeLineImage} alt='timeLineImage' className='shadow-white shadow-[20px_20px_0px_0px] object-cover h-[400px] lg:h-fit'/>
         </div>
       </div>
     </div>
