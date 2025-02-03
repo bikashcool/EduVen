@@ -4,12 +4,13 @@ import HighLightText from './HighLightText';
 import CourseCard from './CourseCard';
 
 const tabsName = [
-    "Free", 
-    "New to Coding",
-    "Most Popular",
-    "Skills Paths",
-    "Career Paths",
+  "Free",
+  "New to coding",
+  "Most popular",
+  "Skills paths",
+  "Career paths",
 ];
+
 
 const ExploreMore = () => {
     const [currentTab, setCurrentTab] = useState(tabsName[0]);
@@ -45,7 +46,7 @@ const ExploreMore = () => {
                         px-7 py-[7px] rounded-full transition-all duration-200 cursor-pointer hover:bg-richblack-900 hover:text-richblack-5
                     `} key={index} onClick={() => setMyCards(element)}
                     >
-                        {element}
+                      {element}
                     </div>
                 )
             })
@@ -60,7 +61,7 @@ const ExploreMore = () => {
         {
             courses.map((element, index) => {
                 return (
-                    <CourseCard key={index} cardData={element} currentCard={currentCard} setCurrentCard={setCurrentCard}/>
+                  <CourseCard key={index} cardData={element} currentCard={currentCard} setCurrentCard={setCurrentCard}/>
                 )
             })
         }
