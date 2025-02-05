@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react'
-import { Link, useLocation } from 'react-router-dom'
+import { Link, matchPath, useLocation } from 'react-router-dom'
 import logo from "../../assets/Logo/LogoEdu.png"
 import {NavbarLinks} from "../../data/navbar-links"
 import { BsChevronDown } from 'react-icons/bs'
 import { useSelector } from 'react-redux'
-import { AiOutlineShoppingCart } from 'react-icons/ai'
+import { AiOutlineMenu, AiOutlineShoppingCart } from 'react-icons/ai'
 import ProfileDropDown from '../Core/Auth/ProfileDropDown'
 import { apiConnector } from '../../Services/apiConnector'
 import {categories} from '../../Services/apis'
@@ -16,20 +16,25 @@ const Navbar = () => {
     const location = useLocation();
 
     const [subLinks, setSubLinks] = useState([]);
+    const [loading, setLoading] = useState(false);
+
+
 
     useEffect(() => {
-        async () => {
+        ;(async () => {
+            setLoading(true)
             try{
-                const res = await apiConnector("GET", categories.CATEGORIES_API);
+                const res = await apiConnector("GET", categories.CATEGORIES_API)
                 setSubLinks(res.data.data)
             }catch(error){
-                console.log("Could not fetch Categories.", error);
+                console.log("Could not fetch Categories.", error)
             }
-        }
+            setLoading(false)
+        })()
     }, [])
 
     const matchRoute = (route) => {
-        return matchRoute({path: route}, location.pathname)
+        return matchPath({path: route}, location.pathname)
     }
 
 
@@ -38,7 +43,7 @@ const Navbar = () => {
       <div className='flex w-11/12 max-w-maxContent items-center justify-between'>
         {/* Logo */}
         <Link to={"/"}>
-            <img src={logo} alt='logo' width={160} height={42}/>
+            <img src={logo} alt='logo' width={130} height={35}/>
         </Link>
         {/* Nav Links */}
         <nav className='hidden md:block'>
@@ -56,7 +61,27 @@ const Navbar = () => {
                                                         group-hover:translate-y-[1.65em] group-hover:opacity-100 lg:w-[300px]'
                                         >
                                             <div className='absolute left-[50%] top-0 -z-10 h-6 w-6 translate-x-[80%] translate-y-[-40%] rotate-45 select-none rounded bg-richblack-5'></div>
-
+                                            {
+                                                loading ? (
+                                                    <p className='text-center'>Loading..</p>
+                                                ) : (subLinks && subLinks.length) ? (
+                                                    <>
+                                                        {
+                                                            subLinks?.filter(
+                                                                (subLink) => subLink?.courses?.length > 0 
+                                                            )?.map((subLink, i) => (
+                                                                <Link to={`/catalog/${subLink.name.split(" ").join("-").toLowerCase()}`} 
+                                                                className='rounded-lg bg-transparent py-4 pl-4 hover: bg-richblack-50' key={i}
+                                                                >
+                                                                    <p>{subLink.name}</p>
+                                                                </Link>
+                                                            ))
+                                                        }
+                                                    </>
+                                                ) : (
+                                                    <p className='text-center'>No Courses Found</p>
+                                                )
+                                            }
                                         </div>
                                     </div>
                                 </>
@@ -109,6 +134,9 @@ const Navbar = () => {
                 token !== null && <ProfileDropDown/>
             }
         </div>
+        <button className='mr-4 md:hidden'>
+            <AiOutlineMenu fontSize={24} fill='#AFB2BF'/>
+        </button>
       </div>
     </div>
   )
