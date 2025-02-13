@@ -33,7 +33,7 @@ const LoginForm = () => {
         className="mt-6 flex w-full flex-col gap-y-4"
       >
         <label className="w-full">
-          <p className="mb-1 text-[0.375rem] leading-[1.375rem] text-richblack-5">
+          <p className="mb-1 text-[0.875rem] leading-[1.375rem] text-richblack-5">
             Email Address <sup className="text-pink-200">*</sup>
           </p>
           <input
@@ -76,8 +76,8 @@ const LoginForm = () => {
             )}
           </span>
           <Link to="/forgot-password">
-            <p className="mt-1 ml-auto max-w-max text-xs text-blue-100">
-              Forgot Passoword
+            <p className="mt-1 ml-auto max-w-max text-[16px] text-blue-100">
+              Forgot Password
             </p>
           </Link>
         </label>

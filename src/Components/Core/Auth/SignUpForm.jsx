@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { ACCOUNT_TYPE } from "../../../utils/constants";
 import toast from "react-hot-toast";
 import { setSignupData } from "../../../Reducers/Slices/authSlice";
-import { sendOtp } from "../../../Services/Operations/authAPI";
+import { sendOTP } from "../../../Services/Operations/authAPI";
 import Tab from "../../Common/Tab";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 
@@ -46,7 +46,7 @@ const SignUpForm = () => {
     };
 
     dispatch(setSignupData(signupData));
-    dispatch(sendOtp(formData.email, navigate));
+    dispatch(sendOTP(formData.email, navigate));
 
     setFormData({
       firstName: "",
